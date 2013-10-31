@@ -1,0 +1,17 @@
+Aihe: YatzyHelper
+
+Toteutetaan järjestelmä jossa yatzyn pelaaja voi nähdä nopista ja heittokerrasta riippuen odotusarvot
+kullekin tulosruudukon kohdalle. Tulosruutu valitsemalla annetaan suositus jätettävistä nopista.
+
+
+Käyttäjät: Yatzyn pelaajat, uteliaat
+
+Toiminnot:
+-Valitaan heittokierros, vaihtoehdot 1 ja 2
+
+-Noppien valinta
+	-valitaan viideltä riviltä yksi noppa kultakin
+	-joka rivillä nopat arvoilla 1-6
+
+-Tulosruudun valinta
+	-valitsemalla tulosruutu korostuvat jätettävät nopat

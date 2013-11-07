@@ -1,3 +1,5 @@
 28.10.2013	3 tuntia	aiheen miettiminen ja alkutoimia
 29.10.2013	2 tuntia	Yatzyn pelaamista, aiheeseen tutustumista
 31.10.2013	1 tunti		Määrittelyä, palautus
+1.11.2013	2 tuntia	luokkakaavio, ekat luokat
+7.11.2013	1,5 tuntia	yksikkötestien kärvistelyä, ei me jakeluun

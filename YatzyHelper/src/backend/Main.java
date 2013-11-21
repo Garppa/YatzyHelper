@@ -14,8 +14,8 @@ public class Main {
     
         Noppa noppa1 = new Noppa(1);
          Noppa noppa2 = new Noppa(5);
-          Noppa noppa3 = new Noppa(6);
-        Nopat setti = new Nopat();
+          Noppa noppa3 = new Noppa(8);
+        PoydallaOlevat setti = new PoydallaOlevat();
         setti.lisaaNoppa(noppa1);
         setti.lisaaNoppa(noppa2);
         setti.lisaaNoppa(noppa3);

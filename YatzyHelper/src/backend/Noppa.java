@@ -34,6 +34,7 @@ public class Noppa implements Comparable<Noppa> {
     @Override
     public int compareTo(Noppa noppa){
         return this.silmaluku - noppa.annaSilmaluku();
+        
     }
    
     

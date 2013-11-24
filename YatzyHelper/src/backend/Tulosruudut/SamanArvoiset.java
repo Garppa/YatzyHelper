@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Comparator;
 
 /**
  *
@@ -18,24 +19,33 @@ import java.util.Set;
 public class SamanArvoiset extends Tyyppi {
     private int minimimaara;
     private int maksimimaara;
-    Set<Noppa> kelpaavanopat;
+    Set<Noppa> kelpaavatnopat;
     
     public SamanArvoiset(Set<Noppa> nopat, int tyyppi, int maks, int min) {
         super.tyyppi = tyyppi;
         this.maksimimaara = maks;
         this.minimimaara = min;
-        this.kelpaavanopat = new HashSet<Noppa>(nopat);
+        this.kelpaavatnopat = new HashSet<Noppa>(nopat);
     }
     
     //@Override 
-    public boolean tayttyykoEhto(List<backend.Noppa> nopat) {
-        for ( backend.Noppa nopsuli : nopat) {
-            if (nopsuli.annaSilmaluku() == this.noppa.annaSilmaluku() ) {
-                return true;
+    public boolean tayttyykoEhto(List<Noppa> nopat) {
+        int laskuri = 0;
+        for ( Noppa nopsuli : nopat) {
+            for (Noppa noppavert : this.kelpaavatnopat) {
+                if(nopsuli.compareTo(noppavert)==0) {
+                    laskuri++;
+                }
+                
             }
+  
         }
+        
+        if(laskuri>=minimimaara) { 
+            return true;
+        } 
         return false;
-        }
+    }
     
     public int palautaArvo(List<backend.Noppa> nopat) {
         if(!this.tayttyykoEhto(nopat)) {
@@ -51,11 +61,11 @@ public class SamanArvoiset extends Tyyppi {
         return summa;
     }
     
-    public List<backend.Noppa> sopivatNopat(List<backend.Noppa> nopat) {
-        List<backend.Noppa> nopsut = new ArrayList<backend.Noppa>();
+    public List<Noppa> sopivatNopat(List<Noppa> nopat) {
+        List<Noppa> nopsut = new ArrayList<Noppa>();
         
-        for (backend.Noppa nopeli : nopat) {
-            if (nopeli.annaSilmaluku() == this.noppa.annaSilmaluku()) {
+        for (Noppa nopeli : nopat) {
+            if (this.kelpaavatnopat.equals(nopeli)) {
                 nopsut.add(nopeli);
             }
         }

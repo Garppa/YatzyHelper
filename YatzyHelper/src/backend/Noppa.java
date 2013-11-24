@@ -17,7 +17,7 @@ public class Noppa implements Comparable<Noppa> {
     public static final int KUUSI = 6;
     
     public static final String[] SILMALUVUT = {"1", "2", "3", "4", "5", "6"};
-    int silmaluku;
+    private int silmaluku;
     
     public Noppa(int silmaluku){
         this.silmaluku = silmaluku;

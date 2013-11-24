@@ -8,6 +8,10 @@ package backend.Tulosruudut;
  *
  * @author intoit
  */
-public class KolmeSamaa {
+public class KolmeSamaa extends Tyyppi{
     
+    public KolmeSamaa(int tyyppi){
+        super.tyyppi = tyyppi;
+        
+    }
 }

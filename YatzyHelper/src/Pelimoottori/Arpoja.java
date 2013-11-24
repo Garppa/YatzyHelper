@@ -21,4 +21,5 @@ public class Arpoja {
             arvo = arpa.nextInt(7);
         }
         return arvo;
+    }
 }

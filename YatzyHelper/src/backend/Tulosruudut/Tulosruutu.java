@@ -11,9 +11,12 @@ package backend.Tulosruudut;
 public class Tulosruutu {
     private String nimi;    
     private Tyyppi tyyppi;
+    private int pisteet;
     
-    public Tulosruutu(){
-        
+    public Tulosruutu(String nimi, Tyyppi tyyppi){
+        this.nimi = nimi;
+        this.tyyppi = tyyppi;
+        this.pisteet = 0;
     }
     
 }

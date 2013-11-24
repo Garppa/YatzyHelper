@@ -18,4 +18,8 @@ public class Tulosrivi {
     public Tulosrivi(){
          this.ruudut = new ArrayList<Tulosruutu>();
     }
+    
+    public void lisaaTulosrivi(Tulosruutu tulosruutu){
+        this.ruudut.add(tulosruutu);
+    }
 }

@@ -11,10 +11,9 @@ package backend.Tulosruudut;
 public class Pari extends Tyyppi{
     private int minimimaara;
     private int maksimimaara;
-    private backend.Noppa noppa;
     
-    public Pari(int silmaluku, String nimi) {
-        super.nimi = nimi;
+    public Pari(int tyyppi) {
+        super.tyyppi = tyyppi;
         this.maksimimaara = 2;
         this.minimimaara = 2;
         

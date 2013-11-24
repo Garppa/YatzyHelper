@@ -5,23 +5,26 @@
 package backend.Tulosruudut;
 
 
+import backend.Noppa;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
  * @author intoit
  */
-public class Ylakerta extends Tyyppi {
+public class SamanArvoiset extends Tyyppi {
     private int minimimaara;
     private int maksimimaara;
-    private backend.Noppa noppa;
+    Set<Noppa> kelpaavanopat;
     
-    public Ylakerta(int silmaluku, String nimi) {
-        super.nimi = nimi;
-        this.maksimimaara = 5;
-        this.minimimaara = 1;
-        this.noppa = new backend.Noppa(silmaluku);
+    public SamanArvoiset(Set<Noppa> nopat, int tyyppi, int maks, int min) {
+        super.tyyppi = tyyppi;
+        this.maksimimaara = maks;
+        this.minimimaara = min;
+        this.kelpaavanopat = new HashSet<Noppa>(nopat);
     }
     
     //@Override 

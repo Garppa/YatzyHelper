@@ -35,5 +35,6 @@ public class Noppa implements Comparable<Noppa> {
     public int compareTo(Noppa noppa){
         return this.silmaluku - noppa.annaSilmaluku();
     }
+   
     
 }

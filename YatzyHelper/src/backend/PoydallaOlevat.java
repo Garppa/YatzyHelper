@@ -17,8 +17,12 @@ public class PoydallaOlevat {
         this.nopat = new ArrayList<Noppa>();
     }
     
-    public void lisaaNoppa(Noppa noppa) {
-        this.nopat.add(noppa);
+    public boolean lisaaNoppa(Noppa noppa) {
+        if(voikoLisata()) {
+            this.nopat.add(noppa);
+            return true;
+        }
+        return false;
     }
     
     public void poistaNoppa(Noppa noppa) {
@@ -43,6 +47,17 @@ public class PoydallaOlevat {
             pulautus = pulautus + ", " + nopat.get(i).annaSilmaluku();
         }   
         return pulautus;
+    }
+    
+    public List<Noppa> annaNopat(){
+        return this.nopat;
+    }
+    
+    private boolean voikoLisata() {
+        if (this.nopat.size()<5) {
+            return true;
+        }
+        return false;
     }
 }
 

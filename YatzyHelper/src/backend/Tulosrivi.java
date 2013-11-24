@@ -5,19 +5,17 @@
 package backend;
 
 import backend.Tulosruudut.Tulosruutu;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author intoit
  */
-public class Tuloskortti {
+public class Tulosrivi {
     private List<Tulosruutu> ruudut;
     
-    public Tuloskortti(){
-        this.ruudut = new ArrayList<Tulosruutu>();
-        
-        ruudut.add(null);
+    public Tulosrivi(){
+         this.ruudut = new ArrayList<Tulosruutu>();
     }
 }

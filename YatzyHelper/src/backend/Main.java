@@ -4,6 +4,8 @@
  */
 package backend;
 
+import Pelimoottori.Arpoja;
+
 /**
  *
  * @author intoit
@@ -25,6 +27,9 @@ public class Main {
         setti.poistaNoppa(noppa3);
         
         System.out.println(setti.toString());
+        
+        Arpoja arpa = new Arpoja();
+        System.out.println(arpa.annaArvo()); 
 }
     
 }

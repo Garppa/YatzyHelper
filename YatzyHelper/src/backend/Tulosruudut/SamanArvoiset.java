@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Comparator;
+import java.util.Map;
 
 /**
  *
@@ -21,54 +22,61 @@ public class SamanArvoiset extends Tyyppi {
     private int maksimimaara;
     Set<Noppa> kelpaavatnopat;
     
-    public SamanArvoiset(Set<Noppa> nopat, int tyyppi, int maks, int min) {
+    public SamanArvoiset(Set<Noppa> nopat, int tyyppi, int min, int maks) {
         super.tyyppi = tyyppi;
         this.maksimimaara = maks;
         this.minimimaara = min;
         this.kelpaavatnopat = new HashSet<Noppa>(nopat);
     }
     
-    //@Override 
-    public boolean tayttyykoEhto(List<Noppa> nopat) {
-        int laskuri = 0;
-        for ( Noppa nopsuli : nopat) {
-            for (Noppa noppavert : this.kelpaavatnopat) {
-                if(nopsuli.compareTo(noppavert)==0) {
-                    laskuri++;
-                }
-                
-            }
-  
-        }
-        
-        if(laskuri>=minimimaara) { 
+    //@Override
+
+    /**
+     *
+     * @param nopat
+     * @return
+     */
+    @Override
+    public boolean tayttyykoEhto(Set<Noppa> nopat) {
+
+    Map<Noppa, Integer> nopatlistalla = super.laskeNopittain(nopat);
+
+    for ( Noppa nopsuli : nopatlistalla.keySet()) {
+        if(nopatlistalla.get(nopsuli)>=this.minimimaara && kelpaavatnopat.contains(nopsuli)) {
             return true;
-        } 
-        return false;
-    }
-    
-    public int palautaArvo(List<backend.Noppa> nopat) {
-        if(!this.tayttyykoEhto(nopat)) {
-            return 0;
         }
-        int summa = 0;
-        List<backend.Noppa> nopsut = this.sopivatNopat(nopat);
-        for(backend.Noppa nopsuli : nopsut) {
-            
-            summa = summa + nopsuli.annaSilmaluku();
+
         }
-        
-        return summa;
+    return false;
     }
-    
-    public List<Noppa> sopivatNopat(List<Noppa> nopat) {
-        List<Noppa> nopsut = new ArrayList<Noppa>();
         
-        for (Noppa nopeli : nopat) {
-            if (this.kelpaavatnopat.equals(nopeli)) {
-                nopsut.add(nopeli);
+
+    @Override
+    public Set<Noppa> sopivatNopat(Set<Noppa> nopat, int arvo) {
+        
+        
+        Set<Noppa> nopsut = new HashSet<Noppa>();
+        
+        Map<Noppa, Integer> nopatlistalla = super.laskeNopittain(nopat);
+        
+        for ( Noppa nopsuli : nopatlistalla.keySet()) {
+            if(nopatlistalla.get(nopsuli)>=this.minimimaara && kelpaavatnopat.contains(nopsuli)&&nopsuli.annaSilmaluku()==arvo) {
+                if (this.minimimaara==this.maksimimaara) {
+                    for (int i=0; i<this.minimimaara; i++) {
+                        nopsut.add(nopsuli);
+                    } 
+        
+                }else {
+                    for (int i=0; i<nopatlistalla.get(nopsuli); i++) {
+                        nopsut.add(nopsuli);
+                    }
+                    
+                }
+                            
+                            
+        
             }
-        }
+        }   
         return nopsut;
     }
 }

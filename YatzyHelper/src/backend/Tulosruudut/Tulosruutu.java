@@ -3,11 +3,14 @@
  * and open the template in the editor.
  */
 package backend.Tulosruudut;
+import java.util.Set;
+import java.util.Map;
+import java.util.HashMap;
+import backend.*;
 
-/**
- *
- * @author intoit
+/* @author intoit
  */
+
 public class Tulosruutu {
     private String nimi;    
     private Tyyppi tyyppi;
@@ -19,4 +22,7 @@ public class Tulosruutu {
         this.pisteet = 0;
     }
     
+  
+    
+
 }

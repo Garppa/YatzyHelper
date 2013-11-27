@@ -4,6 +4,11 @@
  */
 package backend.Tulosruudut;
 
+import backend.Noppa;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 /**
  *
  * @author intoit
@@ -36,6 +41,50 @@ public class Tyyppi {
     public Tyyppi(){
         
     }
+    
+    public Map<Noppa, Integer> laskeNopittain(Set<Noppa> nopat){
+        Map<Noppa, Integer> lasketutnopat = new HashMap<Noppa, Integer>();
+        
+        for (int i = 1; i<6 ; i++) {
+            lasketutnopat.put(new Noppa(i), 0);
+        }
+           
+        for (Noppa nopsu : nopat) {
+            for (Noppa nopsuverrattava : lasketutnopat.keySet()){
+                if (nopsuverrattava.annaSilmaluku()==nopsu.annaSilmaluku()) {
+                    lasketutnopat.put(nopsuverrattava, (lasketutnopat.get(nopsuverrattava)+1));
+                }
+            
+        }
+                 
+    }
+        return lasketutnopat;
+    }
+    
+    public boolean tayttyykoEhto(Set<Noppa> nopat){
+        return false;
+    }
+    
+        
+    
+    public int palautaArvo(Set<Noppa> nopat) {
+        if(!this.tayttyykoEhto(nopat)) {
+            return 0;
+        }
+        int summa = 0;
+       
+        for(Noppa nopsuli : nopat) {
+            
+            summa = summa + nopsuli.annaSilmaluku();
+        }
+        
+        return summa;
+    }
+    
+    public Set<Noppa> sopivatNopat(Set<Noppa> nopat, int arvo) {
+        return nopat;
+    }
+    
 }
 
 

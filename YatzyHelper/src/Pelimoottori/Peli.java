@@ -53,12 +53,12 @@ public class Peli {
             nopat.add(new Noppa(i));
         }
         tyypit.add(new Bonus(7));
-        tyypit.add(new Pari(8));
+        tyypit.add(new SamanArvoiset(nopat, 8, 2, 2));
         tyypit.add(new KaksiParia(9));
         tyypit.add(new SamanArvoiset(nopat, 10, 3,3));
         tyypit.add(new SamanArvoiset(nopat, 11, 4,4));
-        tyypit.add(new Suora(1, 12));
-        tyypit.add(new Suora(2, 13));
+        tyypit.add(new Suora(12, 1, 5));
+        tyypit.add(new Suora(13, 2, 6));
         tyypit.add(new Mokki(14));
         tyypit.add(new Sattuma(15));
         tyypit.add(new SamanArvoiset(nopat, 16, 5,5));

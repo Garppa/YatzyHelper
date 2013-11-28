@@ -52,15 +52,16 @@ public class SamanArvoiset extends Tyyppi {
         
 
     @Override
-    public Set<Noppa> sopivatNopat(Set<Noppa> nopat, int arvo) {
+    public Set<Noppa> sopivatNopat(Set<Noppa> nopat) {
         
         
         Set<Noppa> nopsut = new HashSet<Noppa>();
         
         Map<Noppa, Integer> nopatlistalla = super.laskeNopittain(nopat);
+        //t'h'n pitää vielä huomioida pari ja jotenkin paremmin noi yläkerran arvot. Voi olla monta...
         
         for ( Noppa nopsuli : nopatlistalla.keySet()) {
-            if(nopatlistalla.get(nopsuli)>=this.minimimaara && kelpaavatnopat.contains(nopsuli)&&nopsuli.annaSilmaluku()==arvo) {
+            if(nopatlistalla.get(nopsuli)>=this.minimimaara && nopsuli.annaSilmaluku()==super.tyyppi) {
                 if (this.minimimaara==this.maksimimaara) {
                     for (int i=0; i<this.minimimaara; i++) {
                         nopsut.add(nopsuli);
@@ -74,7 +75,7 @@ public class SamanArvoiset extends Tyyppi {
                 }
                             
                             
-        
+                return nopsut;
             }
         }   
         return nopsut;

@@ -30,8 +30,12 @@ public class Tyyppi {
     public static final int MOKKI = 14;
     public static final int SATTUMA = 15;
     public static final int YATZY = 16;
+    public static final int VALISUMMA = 17;
+    public static final int SUMMA = 18;
     
-   // Tää pitää vielä päivittää public static final String[] SILMALUVUT = {"1", "2", "3", "4", "5", "6"};
+   public static final String[] SILMALUVUT = {"", "YKKOSET", "KAKKOSET", "KOLMOSET", "NELOSET", "VITOSET", "KUTOSET", "BONUS", 
+            "PARI", "KAKSI_PARIA", "KOLME_SAMAA", "NELJA_SAMAA", "PIENI_SUORA", "ISO_SUORA", "MOKKI", "SATTUMA", "YATZY"
+            , "VALISUMMA", "SUMMA"} ;
 
     /**
      *
@@ -81,8 +85,13 @@ public class Tyyppi {
         return summa;
     }
     
-    public Set<Noppa> sopivatNopat(Set<Noppa> nopat, int arvo) {
+    public Set<Noppa> sopivatNopat(Set<Noppa> nopat) {
         return nopat;
+    }
+    
+    @Override
+    public String toString() {
+        return SILMALUVUT[tyyppi];
     }
     
 }

@@ -48,7 +48,7 @@ public class Suora extends Tyyppi {
     }
     
     @Override
-    public Set<Noppa> sopivatNopat(Set<Noppa> nopat, int arvo) {
+    public Set<Noppa> sopivatNopat(Set<Noppa> nopat) {
         if(this.tayttyykoEhto(nopat)) {
             return nopat;
         }

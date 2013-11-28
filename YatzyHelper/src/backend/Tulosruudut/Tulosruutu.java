@@ -12,16 +12,35 @@ import backend.*;
  */
 
 public class Tulosruutu {
-    private String nimi;    
     private Tyyppi tyyppi;
     private int pisteet;
+    private boolean asetettu;
     
-    public Tulosruutu(String nimi, Tyyppi tyyppi){
-        this.nimi = nimi;
+    public Tulosruutu(Tyyppi tyyppi){
         this.tyyppi = tyyppi;
+        this.asetettu = false;
         this.pisteet = 0;
+        
     }
     
+    public Tyyppi annaTyyppi(){
+        return this.tyyppi;
+    }
+    
+    public final void asetaPisteet(int pisteet){
+        if (!this.asetettu) {
+            this.pisteet = pisteet;
+            this.asetettu = true;
+        }
+    }
+    
+    public int annaPisteet(){
+        return this.pisteet;
+    }
+    
+    public boolean onkoAsetettu(){
+        return this.asetettu;
+    }
   
     
 

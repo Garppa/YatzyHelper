@@ -22,4 +22,8 @@ public class Tulosrivi {
     public void lisaaTulosrivi(Tulosruutu tulosruutu){
         this.ruudut.add(tulosruutu);
     }
+    
+    public List<Tulosruutu> annaTulosruudut(){
+        return ruudut;
+    }
 }

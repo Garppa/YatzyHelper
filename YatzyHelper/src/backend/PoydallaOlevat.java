@@ -4,22 +4,29 @@
  */
 package backend;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import Pelimoottori.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
  * @author intoit
  */
 public class PoydallaOlevat {
-    private List<Noppa> nopat;
+    private Map<Noppa, Boolean> nopat;
+    private Arpoja arpoja;
     
     public PoydallaOlevat() {
-        this.nopat = new ArrayList<Noppa>();
+        this.nopat = new HashMap<Noppa, Boolean>();
+        this.arpoja = new Arpoja();
     }
     
     public boolean lisaaNoppa(Noppa noppa) {
         if(voikoLisata()) {
-            this.nopat.add(noppa);
+            this.nopat.put(noppa, false);
             return true;
         }
         return false;
@@ -30,27 +37,33 @@ public class PoydallaOlevat {
     }
     
     public void valitseNoppa(Noppa noppa) {
-        
+        this.nopat.put(noppa, true);
     }
     
     public boolean onPoydalla(Noppa noppa){
-        if(this.nopat.contains(noppa)) {
-            return true;
-        }
-        return false;
+        return this.nopat.containsKey(noppa);
     }
     
+    @Override
     public String toString(){
-        String pulautus = "" + nopat.get(0).annaSilmaluku();
+        String palautus = "";
+        int i = 0;
+        for (Noppa noppa : nopat.keySet() ) {
+            palautus = palautus + noppa.annaSilmaluku();
+        
+            if(i<4) {
+                palautus = palautus + ", ";
+            }
             
-            for(int i = 1; i < nopat.size(); i++) {
-            pulautus = pulautus + ", " + nopat.get(i).annaSilmaluku();
-        }   
-        return pulautus;
+            i++;
+        }    
+            
+        return palautus;
     }
     
-    public List<Noppa> annaNopat(){
-        return this.nopat;
+    
+    public Set<Noppa> annaNopat(){
+        return this.nopat.keySet();
     }
     
     private boolean voikoLisata() {
@@ -58,6 +71,22 @@ public class PoydallaOlevat {
             return true;
         }
         return false;
+    }
+    
+    public void heitaNopat(){
+        if (nopat.isEmpty()) {
+            for (int i = 0; i < 5; i++) {
+                this.lisaaNoppa(new Noppa(arpoja.annaArvo()));
+            }
+        } else {
+            Set<Noppa> nopsut = new HashSet<Noppa>(nopat.keySet());
+            for (Noppa noppa : nopsut) {
+                if (!nopat.get(noppa)) {
+                    this.poistaNoppa(noppa);
+                    this.lisaaNoppa(new Noppa(arpoja.annaArvo()));
+                }
+            }
+        }
     }
 }
 

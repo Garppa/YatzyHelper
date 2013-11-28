@@ -15,18 +15,22 @@ import java.util.Set;
  *
  * @author kari_000
  */
-public class Peli {
-    List<Pelaaja> pelaajat;
-    List<Tyyppi> tyypit;
+public class PeliAlustus {
+    private List<Pelaaja> pelaajat;
+    private List<Tyyppi> tyypit;
+    public PoydallaOlevat nopat;
 
-    public Peli(){
+    public PeliAlustus(){
         this.pelaajat = new ArrayList<Pelaaja>();
         this.tyypit = new ArrayList<Tyyppi>();
+        this.luoTyypit();
+        this.nopat = new PoydallaOlevat();
     }
 
     public boolean alustaPelaaja(String nimi) {
         if(!pelaajat.contains(nimi)) {
             Pelaaja pelaaja = new Pelaaja(nimi);
+            
             pelaajat.add(pelaaja);
             this.alustaTulosrivi(pelaaja);
             return true;
@@ -36,10 +40,13 @@ public class Peli {
     
     public void alustaTulosrivi(Pelaaja pelaaja) {
         Tulosrivi tulosrivi = new Tulosrivi();
-        for (int i=0;i<7;i++) {
-            Tulosruutu
-            tulosrivi.lisaaTulosrivi(new SamanArvoiset(int i, String jee));
+        Tulosruutu tulosruutu;
+        for (int i=0;i<16;i++) {
+            tulosruutu = new Tulosruutu(tyypit.get(i));
+            tulosrivi.lisaaTulosrivi(tulosruutu);
         }
+        
+        pelaaja.liitaTulosrivi(tulosrivi);
     }
     
     public void luoTyypit() {
@@ -49,7 +56,7 @@ public class Peli {
             tyypit.add(new SamanArvoiset(nopat, i, 1, 5));
             nopat.clear();
         }
-        for (int i = 1; i<6; i++) {
+        for (int i = 1; i<7; i++) {
             nopat.add(new Noppa(i));
         }
         tyypit.add(new Bonus(7));
@@ -62,5 +69,11 @@ public class Peli {
         tyypit.add(new Mokki(14));
         tyypit.add(new Sattuma(15));
         tyypit.add(new SamanArvoiset(nopat, 16, 5,5));
+        tyypit.add(new Summa(17));
+        tyypit.add(new Summa(18));
+    }
+    
+    public List<Tyyppi> annaTyypit(){
+        return this.tyypit;
     }
 }

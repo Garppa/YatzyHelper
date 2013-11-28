@@ -37,7 +37,7 @@ public class KaksiParia extends Tyyppi {
     }
     
     @Override
-    public Set<Noppa> sopivatNopat(Set<Noppa> nopat, int arvo) {
+    public Set<Noppa> sopivatNopat(Set<Noppa> nopat) {
         Map<Noppa, Integer> nopatlistalla = super.laskeNopittain(nopat);
         Set<Noppa> noppaset = nopatlistalla.keySet();
         Set<Noppa> palautettavat = new HashSet<Noppa>();

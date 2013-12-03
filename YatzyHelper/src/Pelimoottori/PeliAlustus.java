@@ -76,4 +76,8 @@ public class PeliAlustus {
     public List<Tyyppi> annaTyypit(){
         return this.tyypit;
     }
+    
+    public List<Pelaaja> annaPelaajat() {
+        return pelaajat;
+    }
 }

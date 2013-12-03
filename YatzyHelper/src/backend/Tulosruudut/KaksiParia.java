@@ -44,8 +44,8 @@ public class KaksiParia extends Tyyppi {
         if(this.tayttyykoEhto(nopat)) {
             for(Noppa noppa: noppaset) {
                 if (nopatlistalla.get(noppa)>1) {
-                    palautettavat.add(noppa);
-                    palautettavat.add(noppa);
+                    palautettavat.add(new Noppa(noppa.annaSilmaluku()));
+                    palautettavat.add(new Noppa(noppa.annaSilmaluku()));
                 }
             }
         }

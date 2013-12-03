@@ -28,6 +28,10 @@ public class Heittovuoro {
         }
     }
     
+    public Pelaaja annaPelaaja(){
+        return this.pelaaja;
+    }
+    
     public void tallennaPisteet(Tulosruutu joo){
         Tulosruutu too = joo;
         int summa = 0;
@@ -68,5 +72,9 @@ public class Heittovuoro {
     
     public boolean onJaljella(){
         return this.heitto<3;
+    }
+    
+    public PoydallaOlevat annaPoyta(){
+        return this.poydalla;
     }
 }

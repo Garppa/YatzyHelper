@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package backend;
+package ui;
 
+import Pelimoottori.Peli;
 import Pelimoottori.Arpoja;
-import UI.*;
 /**
  *
  * @author intoit
@@ -13,7 +13,8 @@ import UI.*;
 public class Main {
 
     public static void main(String[] args) {
-        Peli peli = new Peli();
+        
+        //Peli peli = new Peli();
     }
     
 }

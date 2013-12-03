@@ -4,7 +4,7 @@
  */
 package backend.Tulosruudut;
 
-import backend.Noppa;
+import Pelimoottori.Noppa;
 import java.util.Set;
 
 /**

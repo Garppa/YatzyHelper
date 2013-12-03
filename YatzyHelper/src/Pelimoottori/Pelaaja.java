@@ -3,7 +3,6 @@
  * and open the template in the editor.
  */
 package Pelimoottori;
-import backend.Tulosrivi;
 
 /**
  *
@@ -11,7 +10,7 @@ import backend.Tulosrivi;
  */
 public class Pelaaja {
     String nimi;
-    Tulosrivi tulosrivi;
+    TulosSarake tulosrivi;
     
     public Pelaaja(String nimi) {
         
@@ -22,11 +21,11 @@ public class Pelaaja {
         return this.nimi;
     }
     
-    public Tulosrivi annaTulosrivi() {
+    public TulosSarake annaTulosrivi() {
         return this.tulosrivi;
     }
     
-    public void liitaTulosrivi(Tulosrivi tulosrivi){
+    public void liitaTulosrivi(TulosSarake tulosrivi){
         this.tulosrivi = tulosrivi;
     }
     

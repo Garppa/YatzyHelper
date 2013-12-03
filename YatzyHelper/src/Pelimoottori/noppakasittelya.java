@@ -6,7 +6,6 @@
 
 package Pelimoottori;
 
-import backend.Noppa;
 import backend.Tulosruudut.Tyyppi;
 import java.util.ArrayList;
 import java.util.List;

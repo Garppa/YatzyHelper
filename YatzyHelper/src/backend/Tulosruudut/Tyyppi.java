@@ -4,7 +4,7 @@
  */
 package backend.Tulosruudut;
 
-import backend.Noppa;
+import Pelimoottori.Noppa;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -87,6 +87,10 @@ public class Tyyppi {
     
     public Set<Noppa> sopivatNopat(Set<Noppa> nopat) {
         return nopat;
+    }
+    
+    public int annaTyyppi(){
+        return this.tyyppi;
     }
     
     @Override

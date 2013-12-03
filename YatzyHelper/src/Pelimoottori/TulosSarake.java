@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package backend;
+package Pelimoottori;
 
 import backend.Tulosruudut.Tulosruutu;
 import java.util.ArrayList;
@@ -12,10 +12,10 @@ import java.util.List;
  *
  * @author intoit
  */
-public class Tulosrivi {
+public class TulosSarake {
     private List<Tulosruutu> ruudut;
     
-    public Tulosrivi(){
+    public TulosSarake(){
          this.ruudut = new ArrayList<Tulosruutu>();
     }
     

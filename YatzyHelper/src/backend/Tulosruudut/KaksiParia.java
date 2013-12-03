@@ -10,7 +10,7 @@
  */
 package backend.Tulosruudut;
 
-import backend.Noppa;
+import Pelimoottori.Noppa;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;

@@ -5,7 +5,7 @@
 package backend.Tulosruudut;
 
 
-import backend.Noppa;
+import Pelimoottori.Noppa;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashSet;

@@ -4,6 +4,8 @@ package backend;
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+import Pelimoottori.Noppa;
+import Pelimoottori.PoydallaOlevat;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

@@ -7,7 +7,6 @@
 package Pelimoottori;
 import java.util.List;
 import java.util.ArrayList;
-import backend.*;
 import backend.Tulosruudut.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,13 +17,13 @@ import java.util.Set;
 public class PeliAlustus {
     private List<Pelaaja> pelaajat;
     private List<Tyyppi> tyypit;
-    public PoydallaOlevat nopat;
+    //public PoydallaOlevat nopat;
 
     public PeliAlustus(){
         this.pelaajat = new ArrayList<Pelaaja>();
         this.tyypit = new ArrayList<Tyyppi>();
         this.luoTyypit();
-        this.nopat = new PoydallaOlevat();
+        //this.nopat = new PoydallaOlevat();
     }
 
     public boolean alustaPelaaja(String nimi) {
@@ -39,7 +38,7 @@ public class PeliAlustus {
     }
     
     public void alustaTulosrivi(Pelaaja pelaaja) {
-        Tulosrivi tulosrivi = new Tulosrivi();
+        TulosSarake tulosrivi = new TulosSarake();
         Tulosruutu tulosruutu;
         for (int i=0;i<16;i++) {
             tulosruutu = new Tulosruutu(tyypit.get(i));

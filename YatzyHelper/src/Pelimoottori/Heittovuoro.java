@@ -3,7 +3,6 @@
  * and open the template in the editor.
  */
 package Pelimoottori;
-import backend.*;
 import backend.Tulosruudut.*;
 /**
  *
@@ -11,20 +10,27 @@ import backend.Tulosruudut.*;
  */
 public class Heittovuoro {
     private int heitto;
-    PoydallaOlevat poydalla;
-    Pelaaja pelaaja;
+    private PoydallaOlevat poydalla;
+    private Pelaaja pelaaja;
     
     public Heittovuoro(Pelaaja pelaaja) {
         this.heitto=0;
         this.poydalla = new PoydallaOlevat();
         this.pelaaja = pelaaja;
+        heita();
                                                                                                                                    
     }
     
-    public void heita(){
+    public int annaHeitto(){
+        return this.heitto;
+    }
+    
+    public void heita() throws YatzyException{
         if(this.onJaljella()) {
             poydalla.heitaNopat();
             heitto++;
+        } else {
+            throw new YatzyException();
         }
     }
     

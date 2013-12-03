@@ -6,7 +6,6 @@ package backend.Tulosruudut;
 import java.util.Set;
 import java.util.Map;
 import java.util.HashMap;
-import backend.*;
 
 /* @author intoit
  */

@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-package UI;
+package Pelimoottori;
 
 import Pelimoottori.*;
-import backend.*;
+import backend.Tulosruudut.Tulosruutu;
 import backend.Tulosruudut.Tyyppi;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,16 +17,32 @@ import java.util.Scanner;
  * @author intoit
  */
 public class Peli {
-    PeliAlustus alustus;
+    private PeliAlustus alustus;
+    private int kierros;
+    private Heittovuoro vuoro;
     
     
-    public Peli(){
+    public Peli(List<String> pelaajat){
         this.alustus = new PeliAlustus();
-        Scanner lukija = new Scanner(System.in);
+        luoPelaajat(pelaajat);
+        kierros = 1;
+        vuoro = new Heittovuoro(alustus.annaPelaajat().get(0));
+    } 
+    
+    public void luoPelaajat(List<String> pelaajat) {
+        for (String pelaaja : pelaajat) {
+            
+            this.alustus.alustaPelaaja(pelaaja);
+        }
+    }
+    
+    public List<Pelaaja> annaPelaajat(){
+        return this.alustus.annaPelaajat();
+    }
+    
+    
         
-        
-        
-        
+ /*       
         System.out.println("Anna pelaajien lukumäärä:");
         
         int lkm = Integer.parseInt(lukija.nextLine());
@@ -99,5 +115,47 @@ public class Peli {
     }
     
     
-}
+}*/
+
+    public int annaKierros() {
+        return kierros;
+    }
+
+    private void vaihdaKierros() {
+        kierros++;
+    }
+
+    private void seuraavaPelaaja() {
+        
+        int seuraava = alustus.annaPelaajat().indexOf(vuoro.annaPelaaja())+1;
+        if(seuraava==alustus.annaPelaajat().size()) {
+            vaihdaKierros();
+            seuraava = 0;
+        }
+        vuoro = new Heittovuoro(alustus.annaPelaajat().get(seuraava));
+    }
+
+    public Pelaaja annaVuorossaOleva() {
+        return vuoro.annaPelaaja();
+    }
+
+    public int annaHeitto() {
+        return vuoro.annaHeitto();
+    }
+
+    public void heita() throws YatzyException {
+        vuoro.heita();
+    }
+
+    public void tallennaPisteet(Tulosruutu tulosruutu) {
+        vuoro.tallennaPisteet(tulosruutu);
+        seuraavaPelaaja();
+    }
+    
+    public void tallennaPisteet() {
+    
+    seuraavaPelaaja();
+    }
+    
+    
 }

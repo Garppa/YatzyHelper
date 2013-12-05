@@ -18,7 +18,7 @@ import org.junit.Test;
  *
  * @author kari_000
  */
-public class PeliTest {
+public class PeliTest extends PerustaTest{
     public PeliTest(){
         
     }
@@ -131,14 +131,5 @@ public class PeliTest {
         Assert.assertEquals(true, ossi.annaTulosrivi().annaTulosruudut().get(0).onkoAsetettu());
     }
     
-    private Peli luoPeli(String... nimi){
-        List<String> pelaajat = new ArrayList<String>();
-        for (String joo : nimi) {
-            pelaajat.add(joo);
-        }
-        
-        Peli p = new Peli(pelaajat);
-
-        return p;
-    }
+ 
 }

@@ -39,11 +39,10 @@ public class PeliAlustus {
     
     public void alustaTulosrivi(Pelaaja pelaaja) {
         TulosSarake tulosrivi = new TulosSarake();
-        Tulosruutu tulosruutu;
-        for (int i=0;i<16;i++) {
-            tulosruutu = new Tulosruutu(tyypit.get(i));
-            tulosrivi.lisaaTulosrivi(tulosruutu);
-        }
+        
+        for(Tyyppi tyyppi : annaTyypit()) {
+            tulosrivi.lisaaTulosrivi(new Tulosruutu(tyyppi));
+        }      
         
         pelaaja.liitaTulosrivi(tulosrivi);
     }

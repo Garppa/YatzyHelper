@@ -3,3 +3,11 @@
 31.10.2013	1 tunti		Määrittelyä, palautus
 1.11.2013	2 tuntia	luokkakaavio, ekat luokat
 7.11.2013	1,5 tuntia	yksikkötestien kärvistelyä, ei me jakeluun
+4.12.2013	2 tuntia	Tekstikäli demoon
+3.12.2013	2,5 tuntia	Peli - luokka uusiksi
+2.12.2013	1 tunti		logiikkaa tarkistuksiin
+28.11.2013	2 tuntia	peli -luokka
+27.11.2013	3 tunti		sekvenssikaavioita
+24.11.2013	3 tuntia	taustaluokkia, rakennetta
+
+

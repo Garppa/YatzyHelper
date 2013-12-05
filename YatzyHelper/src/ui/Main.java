@@ -14,7 +14,8 @@ public class Main {
 
     public static void main(String[] args) {
         
-        //Peli peli = new Peli();
+        PeliClient peli = new PeliClient();
+        peli.kaynnista();
     }
     
 }

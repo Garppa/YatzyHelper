@@ -11,6 +11,7 @@ import backend.Tulosruudut.Tulosruutu;
 import backend.Tulosruudut.Tyyppi;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 /**
  *
@@ -142,14 +143,28 @@ public class Peli {
     public int annaHeitto() {
         return vuoro.annaHeitto();
     }
+    
+    public Noppa annaNoppa(int paikka) {
+        return vuoro.annaPoyta().annaNoppaPaikkaan(paikka);
+    }
 
     public void heita() throws YatzyException {
         vuoro.heita();
     }
 
     public void tallennaPisteet(Tulosruutu tulosruutu) {
-        vuoro.tallennaPisteet(tulosruutu);
-        seuraavaPelaaja();
+        if(!tulosruutu.onkoAsetettu()) {
+            vuoro.tallennaPisteet(tulosruutu);
+            seuraavaPelaaja();
+        }
+    }
+    
+    public void muutaPaikanTila(int valinta){
+        vuoro.annaPoyta().valitsePaikka(valinta);
+    }
+    
+    public boolean annaPaikanTila(int paikka){
+        return vuoro.annaPoyta().onValittu(paikka);
     }
     
     public void tallennaPisteet() {

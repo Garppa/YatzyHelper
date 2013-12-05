@@ -40,6 +40,11 @@ public class Tulosruutu {
     public boolean onkoAsetettu(){
         return this.asetettu;
     }
+    
+    @Override
+    public String toString() {
+        return tyyppi.toString() + ": " + pisteet;
+    }
   
     
 

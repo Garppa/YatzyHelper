@@ -13,7 +13,7 @@ import java.util.Set;
  *
  * @author intoit
  */
-public class Tyyppi {
+public abstract class Tyyppi {
     public static final int YKKOSET = 1;
     public static final int KAKKOSET = 2;
     public static final int KOLMOSET = 3;
@@ -49,7 +49,7 @@ public class Tyyppi {
     public Map<Noppa, Integer> laskeNopittain(Set<Noppa> nopat){
         Map<Noppa, Integer> lasketutnopat = new HashMap<Noppa, Integer>();
         
-        for (int i = 1; i<6 ; i++) {
+        for (int i = 1; i<7 ; i++) {
             lasketutnopat.put(new Noppa(i), 0);
         }
            

@@ -30,32 +30,36 @@ public class Suora extends Tyyppi {
     
     @Override
     public boolean tayttyykoEhto(Set<Noppa> nopat) {
-
-    
-    List<Noppa> sortataan = new ArrayList<Noppa>();
-            sortataan.addAll(nopat);
-    Collections.sort(sortataan);
-    int i=this.minimimaara;
-    for ( Noppa nopsuli : sortataan) {
-        if (nopsuli.annaSilmaluku()==i){
-            i++;
-        } else {
-            break;
+        List<Noppa> suora = teeSuora();
+        int i = 0;
+        for(Noppa noppa : suora) {
+            for (Noppa testattava : nopat) {
+                if (noppa.annaSilmaluku()==testattava.annaSilmaluku()){
+                    i++;
+                }
+            }
         }
-
-        }
-    return i==5;
+        return i==5;
     }
     
     @Override
     public Set<Noppa> sopivatNopat(Set<Noppa> nopat) {
         if(this.tayttyykoEhto(nopat)) {
             return nopat;
-        }
+        }                
         
         return null;
         
     }
+    
+    public List<Noppa> teeSuora(){
+        List<Noppa> suora = new ArrayList<Noppa>();
+        for(int k = minimimaara; k<minimimaara+5; k++){
+            suora.add(new Noppa(k));
+        }
+        return suora;
+    }
+        
          
 }
     

@@ -6,7 +6,6 @@
 package backend.tulosruudut;
 
 import Pelimoottori.Noppa;
-import backend.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;

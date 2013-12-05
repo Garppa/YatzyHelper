@@ -51,7 +51,7 @@ public class PoydallaOlevat {
         this.valitut.remove(paikka);
     }
     
-    public void valitseNoppa(int valinta) {
+    public void valitsePaikka(int valinta) {
         
         if (!this.onValittu(valinta)) {
         valitut.put(valinta, true);
@@ -108,6 +108,15 @@ public class PoydallaOlevat {
                 }
             }
         }
+    }
+
+    public Noppa annaNoppaPaikkaan(int paikka) {
+        for (Noppa noppa : nopat.keySet()) {
+            if(nopat.get(noppa)==paikka){
+                return noppa;
+            }
+        }
+        return null;
     }
 }
 

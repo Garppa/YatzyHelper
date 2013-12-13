@@ -7,7 +7,7 @@
 package backend.Tulosruudut;
 
 /**
- *
+ * Erikoisruutu yläkerran 50 pisteen bonukselle, ei täytettävissä
  * @author intoit
  */
 public class Bonus extends Tyyppi{

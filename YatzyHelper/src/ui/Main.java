@@ -6,6 +6,7 @@ package ui;
 
 import Pelimoottori.Peli;
 import Pelimoottori.Arpoja;
+import javax.swing.SwingUtilities;
 /**
  *
  * @author intoit
@@ -16,6 +17,10 @@ public class Main {
         
         PeliClient peli = new PeliClient();
         peli.kaynnista();
+
+        //
+        //GraafinenUi totteroi = new GraafinenUi();
+        //SwingUtilities.invokeLater(totteroi);
     }
     
 }

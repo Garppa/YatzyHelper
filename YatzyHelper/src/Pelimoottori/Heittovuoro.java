@@ -7,7 +7,7 @@ import backend.Tulosruudut.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
- *
+ *Pelin avainluokkia. Yksittaisen heittovuoron hallinta
  * @author intoit
  */
 public class Heittovuoro {
@@ -27,10 +27,18 @@ public class Heittovuoro {
                                                                                                                                    
     }
     
+    /**
+     *Palauttaa heittojen lukumäärän
+     * @return heittojen lukumäärä
+     */
     public int annaHeitto(){
         return this.heitto;
     }
     
+    /**
+     *Heittää lukitsemattomat nopat
+     * @throws YatzyException mikäli heittoja ei ole jäljellä heitetään virhe
+     */
     public void heita() throws YatzyException{
         if(this.onJaljella()) {
             poydalla.heitaNopat();
@@ -40,27 +48,38 @@ public class Heittovuoro {
         }
     }
     
+    /**
+     *Palauttaa vuorossa olevan pelaajan
+     * @return vuorossa oleva pelaaja
+     */
     public Pelaaja annaPelaaja(){
         return this.pelaaja;
     }
     
-    public void tallennaPisteet(Tulosruutu joo){
-        Tulosruutu too = joo;
+    /**
+     *Tallentaa pisteet annettuun tulosruutuun. 0 mikäli arvo ei kelpaa.
+     * @param tulosruutu    ruutu johon halutaan pisteet tallennettavan
+     */
+    public void tallennaPisteet(Tulosruutu tulosruutu){
+        Tulosruutu tallennettava = tulosruutu;
         int summa = 0;
         //if(too.annaTyyppi().tayttyykoEhto(poydalla.annaNopat())){
-            for(Noppa noppa : too.annaTyyppi().sopivatNopat(this.poydalla.annaNopat())){
+            for(Noppa noppa : tallennettava.annaTyyppi().sopivatNopat(this.poydalla.annaNopat())){
                 summa = summa + noppa.annaSilmaluku();
             }
-            if(too.annaTyyppi().annaTyyppi()==15&&too.annaTyyppi().sopivatNopat(this.poydalla.annaNopat()).size()==5){
+            if(tallennettava.annaTyyppi().annaTyyppi()==15&&tallennettava.annaTyyppi().sopivatNopat(this.poydalla.annaNopat()).size()==5){
                 summa = 50;
             }
         //}
-        too.asetaPisteet(summa);
+        tallennettava.asetaPisteet(summa);
         tarkistaYlakerta();
         tarkistaLoppusumma();
         
     }
     
+    /**
+     * Tarkistetaan täyttyykö yläkerran 63 ja jos niin asetetaan bonusruudun arvoksi 50.
+     */
     public void tarkistaBonus(){
         Tulosruutu bonus = pelaaja.annaTulosrivi().annaTulosruudut().get(6);
         
@@ -73,6 +92,10 @@ public class Heittovuoro {
 
     }
     
+    /**
+     *Tarkistetaan onko yläkerta täynnä
+     * @return palautuu tosi mikäli yläkerran kaikki ruudut täynnä
+     */
     public boolean tarkistaYlakerta(){
         int valisumma = 0;
         for (int i = 0; i < 6 ; i++) {
@@ -86,6 +109,10 @@ public class Heittovuoro {
         return true;
     }
     
+    /**
+     *Tarkistetaan josko ruudukko on täysi ja lasketaan loppusumma mikäli näin on.
+     * @return
+     */
     public boolean tarkistaLoppusumma(){
         for (int i = 7; i < 17 ; i++) {
             if(!pelaaja.annaTulosrivi().annaTulosruudut().get(i).onkoAsetettu()) {
@@ -104,10 +131,18 @@ public class Heittovuoro {
         return true;
     }
     
+    /**
+     *onko heittoja jäljellä
+     * @return tosi, mikäli heittoja jäljellä
+     */
     public boolean onJaljella(){
         return this.heitto<3;
     }
     
+    /**
+     *
+     * @return heittovuoron pöytä
+     */
     public PoydallaOlevat annaPoyta(){
         return this.poydalla;
     }

@@ -7,7 +7,7 @@
 package backend.Tulosruudut;
 
 /**
- *
+ * Laajentaa tyyppiä. Tarkoitettu summa luokaksi.
  * @author intoit
  */
 public class Summa extends Tyyppi {

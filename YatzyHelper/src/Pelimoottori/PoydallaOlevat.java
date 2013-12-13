@@ -12,12 +12,21 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- *
+ *Hallitsee pöydällä olevia noppia
  * @author intoit
  */
 public class PoydallaOlevat {
+    /**
+     * Taulu pöydällä olevista nopista, jokaisella oma "paikka".
+     */
     private Map<Noppa, Integer> nopat;
+    /**
+     * arpoja, jolta saadaan nopille silmäluvut
+     */
     private Arpoja arpoja;
+    /**
+     * Taulu paikoista ja niiden valittuna olemisen tilasta
+     */
     private Map<Integer, Boolean> valitut;
     
     public PoydallaOlevat() {
@@ -26,6 +35,11 @@ public class PoydallaOlevat {
         this.valitut = new HashMap<Integer, Boolean>();
     }
     
+    /**
+     * Nopan lisäys pöydälle
+     * @param noppa noppa joka lisätään pöydälle
+     * @return palauttaa true, mikäli onnistui
+     */
     public boolean lisaaNoppa(Noppa noppa) {
         if(voikoLisata()) {
             int paikka = this.annaVapaa();
@@ -36,6 +50,10 @@ public class PoydallaOlevat {
         return false;
     }
     
+    /**
+     *Antaa ensimmäisen tyhjän paikan pöydältä
+     * @return palauttaa 0 mikäli ei vapaita paikkoja, oletuksena joku on.
+     */
     public int annaVapaa(){
         for(int i = 1; i < 6; i++ ) {
             if(!nopat.containsValue(i)){
@@ -45,12 +63,20 @@ public class PoydallaOlevat {
         return 0;
     }
     
+    /**
+     *poistaa nopan pöydältä
+     * @param noppa
+     */
     public void poistaNoppa(Noppa noppa) {
         int paikka = nopat.get(noppa);
         this.nopat.remove(noppa);
         this.valitut.remove(paikka);
     }
     
+    /**
+     *paikka ja sitä myöten sillä oleva noppa valitaan valituksi
+     * @param valinta arvo 1-6
+     */
     public void valitsePaikka(int valinta) {
         
         if (!this.onValittu(valinta)) {
@@ -61,10 +87,20 @@ public class PoydallaOlevat {
         
     }
     
+    /**
+     *Palauttaa tiedon onko noppa pöydällä
+     * @param noppa Noppa jonka tila halutaan tietää
+     * @return Tosi jos noppa on pöydällä
+     */
     public boolean onPoydalla(Noppa noppa){
         return this.nopat.containsKey(noppa);
     }
     
+    /**
+     *Palauttaa tiedon onko paikka valittuna
+     * @param valittu paikka jonka tila halutaan tietää
+     * @return tosi jos paikka on valittuna.
+     */
     public boolean onValittu(int valittu) {
         return (this.valitut.get(valittu)==true);
     }
@@ -92,8 +128,10 @@ public class PoydallaOlevat {
     private boolean voikoLisata() {
         return this.nopat.size()<5;
     }
-   
-    
+
+    /**
+     *Heittää kaikki nopat joita ei ole valittuna
+     */
     public void heitaNopat(){
         if (nopat.isEmpty()) {
             for (int i = 0; i < 5; i++) {
@@ -110,6 +148,11 @@ public class PoydallaOlevat {
         }
     }
 
+    /**
+     *Palauttaa nopan tietylle paikalle
+     * @param paikka minkä paikan noppa halutaan
+     * @return Noppa joka sijaitsi parametrin paikalla.
+     */
     public Noppa annaNoppaPaikkaan(int paikka) {
         for (Noppa noppa : nopat.keySet()) {
             if(nopat.get(noppa)==paikka){

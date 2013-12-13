@@ -14,6 +14,8 @@ import java.util.Set;
 import junit.framework.Assert;
 import org.junit.Test;
 import backend.Tulosruudut.*;
+import java.util.HashMap;
+import java.util.Map;
 /**
  *
  * @author intoit
@@ -89,6 +91,35 @@ public class SamanArvoisetTest extends TyyppiTest{
             summa = summa + noppa.annaSilmaluku();
         }
         Assert.assertEquals(3, summa);
+    }
+    
+        @Test
+    public void kaksiPariaPalauttaaIsomman(){
+        Set<Noppa> lista = new HashSet<Noppa>(luoNopat(2,2,5,5,3));
+        Set<Noppa> nopat = new HashSet<Noppa>(luoNopat(1,2,3,4,5,6));
+        backend.Tulosruudut.Tyyppi joo = new backend.Tulosruudut.SamanArvoiset(nopat, 8, 2, 2);
+        int summa = 0;
+        for (Noppa noppa : joo.sopivatNopat(lista)){
+            summa = summa + noppa.annaSilmaluku();
+        }
+        Assert.assertEquals(10, summa);
+    }
+    
+    @Test
+    public void testaaPoistaaPienempiPariToimii(){
+        Set<Noppa> lista = new HashSet<Noppa>(luoNopat(2,2,5,5,3));
+        Set<Noppa> nopat = new HashSet<Noppa>(luoNopat(1,2,3,4,5,6));
+        Map<Noppa, Integer> parisetti = new HashMap<Noppa, Integer>();
+        Noppa kakkonen = new Noppa(2);
+        Noppa vitonen = new Noppa(5);
+        parisetti.put(kakkonen, 2);
+        parisetti.put(vitonen, 2);
+        
+        backend.Tulosruudut.Tyyppi joo = new backend.Tulosruudut.SamanArvoiset(nopat, 8, 2, 2);
+        
+        parisetti = joo.poistaPienempiPari(parisetti);
+
+        Assert.assertEquals(1, parisetti.size());
     }
     
             

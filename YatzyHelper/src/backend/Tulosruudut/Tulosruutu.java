@@ -7,12 +7,23 @@ import java.util.Set;
 import java.util.Map;
 import java.util.HashMap;
 
-/* @author intoit
+/**
+ * Yksittäisen tulosruutuun liittyvä toiminnallisuus
+ * @author Kari
  */
 
 public class Tulosruutu {
+    /**
+     * Tulosruudun tyyppi
+     */
     private Tyyppi tyyppi;
+    /**
+     * Tulosruutuun liittyvät pisteet
+     */
     private int pisteet;
+    /**
+     * Tieto siitä, onko tulosruutuun asetettu pisteet
+     */
     private boolean asetettu;
     
     public Tulosruutu(Tyyppi tyyppi){

@@ -5,8 +5,8 @@
 package Pelimoottori;
 import java.util.Random;
 
-/**
- *
+/** 
+ * Arpoo nopalle arvon 1-6
  * @author intoit
  */
 public class Arpoja {
@@ -15,6 +15,10 @@ public class Arpoja {
         this.arpa = new Random();
     }
     
+    /**
+     * Kysytaan nopalle silmalukujen arvoja
+     * @return palauttaa arvon 1-6
+     */
     public int annaArvo(){
         int arvo = 0;
         while (arvo==0){

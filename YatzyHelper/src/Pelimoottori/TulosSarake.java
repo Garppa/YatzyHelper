@@ -9,10 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ *Hallitsee yhden pelaajan tulosruutuja
  * @author intoit
  */
 public class TulosSarake {
+    /**
+     * Tulossarakkeeseen liittyvien tulosruutujen lista
+     */
     private List<Tulosruutu> ruudut;
     
     public TulosSarake(){

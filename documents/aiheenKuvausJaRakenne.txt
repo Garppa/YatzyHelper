@@ -1,17 +1,48 @@
 Aihe: YatzyHelper
 
-Toteutetaan j‰rjestelm‰ jossa yatzyn pelaaja voi n‰hd‰ nopista ja heittokerrasta riippuen odotusarvot
-kullekin tulosruudukon kohdalle. Tulosruutu valitsemalla annetaan suositus j‰tett‰vist‰ nopista.
+Toteutetaan Yatzypeli.
+Pelaajien lukum‰‰r‰ on 1-4. Jokainen pelaaja heitt‰‰ vuorollaan viitt‰ noppaa kutakin maksimissaan kolme kertaa. Pelaaja tavoittelee vuorollaan 
+tiettyj‰ yhditelmi‰, kuten paria, suoraa yms.
+Voittaja on se jonka noppien summa on lopussa suurin.
 
-
-K‰ytt‰j‰t: Yatzyn pelaajat, uteliaat
+K‰ytt‰j‰t: Yatzyn pelaajat
 
 Toiminnot:
--Valitaan heittokierros, vaihtoehdot 1 ja 2
 
--Noppien valinta
-	-valitaan viidelt‰ rivilt‰ yksi noppa kultakin
-	-joka rivill‰ nopat arvoilla 1-6
+-Annetaan pelaajien nimet
 
--Tulosruudun valinta
-	-valitsemalla tulosruutu korostuvat j‰tett‰v‰t nopat
+-Lukitaan noppa
+-Heitet‰‰n lukitsemattomat
+-Tallennetaan noppien arvo ruudukkoon
+
+Rakenne:
+Peliss‰ luodaan ensin pelialustus olio, jolla hoidetaan pelaajien, tulosruudun tyyppien ja varsinaisten tulosruutujen luominen pelaajille.
+Tulosruudut ovat oma kokonaisuutensa, jossa erilaiset alatyypit (kuten pari, kolme samaa jne.) laajentavat perustyyppi‰.
+
+Kun Peli on alustettu k‰ynistet‰‰n ensimm‰inen heittovuoro. T‰h‰n heittovuoroon liittyy pˆyd‰ll‰ olevat nopat ja pelaaja joka on vuorossa.
+Kun pelaaja on valinnut tulossarakkeesta ruudun johon h‰n haluaa tuloksensa tallettaa, tehd‰‰n uusi heittovuoro, johon pelialustuksen mukaisen 
+pelaajlistan mukaan seuraava pelaaja kiinnitet‰‰n.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

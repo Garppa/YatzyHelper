@@ -34,8 +34,10 @@ public class SuoraTest extends TyyppiTest {
         Set<Noppa> pienisuora = new HashSet<Noppa>(luoNopat(1,1,3,4,5));
         backend.Tulosruudut.Tyyppi joo = new backend.Tulosruudut.Suora(12, 1, 5);
         
-        Assert.assertEquals(true, joo.tayttyykoEhto(pienisuora));
+        Assert.assertEquals(false, joo.tayttyykoEhto(pienisuora));
     }
+    
+       
     
     @Test
     public void isoSuoraKelpaa(){

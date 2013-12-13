@@ -16,8 +16,8 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- *
- * @author intoit
+ *Kaksi paria, laajentaa tyyppiä. Tarkastaa onko annetussa setissä kahtaa erillistä paria.
+ * @author kari
  */
 public class KaksiParia extends Tyyppi {
     public KaksiParia(int tyyppi) {
@@ -32,9 +32,14 @@ public class KaksiParia extends Tyyppi {
     @Override
     public boolean tayttyykoEhto(Set<Noppa> nopat){
         Map<Noppa, Integer> nopatlistalla = super.laskeNopittain(nopat);
-        
-        return (nopatlistalla.containsValue(2)&&nopatlistalla.containsValue(3))||(nopatlistalla.containsValue(2)&&nopatlistalla.containsValue(2));
-    }
+        int i = 0;
+        for(Noppa noppa: nopatlistalla.keySet()) {
+            if(nopatlistalla.get(noppa)>1) {
+                i++;
+            }
+        }
+            return i>1;
+       }
     
     @Override
     public Set<Noppa> sopivatNopat(Set<Noppa> nopat) {

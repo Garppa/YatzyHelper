@@ -14,11 +14,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 /**
- *
+ *Hoidetaan pelin hallinta ja alustukset
  * @author intoit
  */
 public class Peli {
-    private PeliAlustus alustus;
+    private final PeliAlustus alustus;
     private int kierros;
     private Heittovuoro vuoro;
     
@@ -28,9 +28,13 @@ public class Peli {
         luoPelaajat(pelaajat);
         kierros = 1;
         vuoro = new Heittovuoro(alustus.annaPelaajat().get(0));
-    } 
-    
-    public void luoPelaajat(List<String> pelaajat) {
+    }
+
+    /**
+     *Kutsutaan peliin liittyvän alustuksen pelaajien luontia
+     * @param pelaajat
+     */
+    private void luoPelaajat(List<String> pelaajat) {
         for (String pelaaja : pelaajat) {
             
             this.alustus.alustaPelaaja(pelaaja);
@@ -148,10 +152,20 @@ public class Peli {
         return vuoro.annaPoyta().annaNoppaPaikkaan(paikka);
     }
 
+    /**
+     *@see Heittovuoro.heita()
+     * @throws YatzyException mikäli heittoja ei ole enää jäljellä niin poikkeus lentää
+     */
     public void heita() throws YatzyException {
         vuoro.heita();
     }
 
+    /**
+     *tallentaa pisteet annettuun tulosruutuun kutsumalla vuoron metodia tallennaPisteet()
+     * Tarkastaa myos onko ruutuun jo asetettu arvo. Mikali tallennus onnistuu on pelaaja vaihtuu.
+     * 
+     * @param tulosruutu
+     */
     public void tallennaPisteet(Tulosruutu tulosruutu) {
         if(!tulosruutu.onkoAsetettu()) {
             vuoro.tallennaPisteet(tulosruutu);
@@ -159,10 +173,19 @@ public class Peli {
         }
     }
     
+    /**
+     *muuttaa nopan paikan tilaa
+     * @param valinta
+     */
     public void muutaPaikanTila(int valinta){
         vuoro.annaPoyta().valitsePaikka(valinta);
     }
     
+    /**
+     *Palauttaa nopan paikan tilan
+     * @param paikka nopan paikka
+     * @return palauttaa tiedon onko valittu vai vapaa (true on valittu)
+     */
     public boolean annaPaikanTila(int paikka){
         return vuoro.annaPoyta().onValittu(paikka);
     }

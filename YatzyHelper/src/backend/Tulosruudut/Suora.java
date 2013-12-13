@@ -14,11 +14,17 @@ import java.util.Comparator;
 import java.util.Map;
 import java.util.Collections;
 /**
- *
+ * Tyypin laajennos joka tarkastaa että suora on minimimäärästä  maksimimäärään eli 1-5 tai 2-6
  * @author intoit
  */
 public class Suora extends Tyyppi {
+    /**
+     * mistä nopasta suora liikkeelle
+     */
     private int minimimaara;
+    /**
+     * mihin noppaan suora päättyy
+     */
     private int maksimimaara;
     
     
@@ -32,26 +38,36 @@ public class Suora extends Tyyppi {
     public boolean tayttyykoEhto(Set<Noppa> nopat) {
         List<Noppa> suora = teeSuora();
         int i = 0;
-        for(Noppa noppa : suora) {
-            for (Noppa testattava : nopat) {
-                if (noppa.annaSilmaluku()==testattava.annaSilmaluku()){
-                    i++;
-                }
+        List<Noppa> testattavatnopat = new ArrayList<Noppa>();
+        testattavatnopat.addAll(nopat);
+        
+        Collections.sort(testattavatnopat);
+        
+        for(Noppa noppasuorassa : suora) {
+            if(noppasuorassa.annaSilmaluku()!=testattavatnopat.get(i).annaSilmaluku()){
+                return false;
             }
+            i++;
         }
-        return i==5;
+        return true;
     }
     
     @Override
     public Set<Noppa> sopivatNopat(Set<Noppa> nopat) {
+        Set<Noppa> palautettavat = new HashSet<Noppa>();
+        
         if(this.tayttyykoEhto(nopat)) {
-            return nopat;
+            palautettavat.addAll(nopat);
         }                
         
-        return null;
+        return palautettavat;
         
     }
     
+    /**
+     * luo suoran minimin ja maksimin väliin.
+     * @return
+     */
     public List<Noppa> teeSuora(){
         List<Noppa> suora = new ArrayList<Noppa>();
         for(int k = minimimaara; k<minimimaara+5; k++){

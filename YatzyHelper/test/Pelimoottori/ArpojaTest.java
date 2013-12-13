@@ -24,12 +24,14 @@ public class ArpojaTest {
     @Test
     public void kutonentulostuuTest(){        
     Arpoja arpa = new Arpoja();
-    List<Integer> lista = new ArrayList<Integer>();
+    int p = 0;
     for (int i=1; i<1000; i++) {
-        lista.add(arpa.annaArvo());
+        if(arpa.annaArvo()==6){
+            p++;
+        }
     }
     
-    assertEquals(true, lista.contains(6));
+    assertEquals(true, (p>100));
     }
 }
 

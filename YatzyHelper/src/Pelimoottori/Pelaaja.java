@@ -5,7 +5,7 @@
 package Pelimoottori;
 
 /**
- *
+ *Pelaaja
  * @author intoit
  */
 public class Pelaaja {
@@ -25,6 +25,10 @@ public class Pelaaja {
         return this.tulosrivi;
     }
     
+    /**
+     *Liitetään pelaajaan oikea tulosrivi
+     * @param tulosrivi
+     */
     public void liitaTulosrivi(TulosSarake tulosrivi){
         this.tulosrivi = tulosrivi;
     }

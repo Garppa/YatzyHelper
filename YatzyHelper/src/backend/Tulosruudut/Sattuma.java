@@ -8,7 +8,7 @@ import Pelimoottori.Noppa;
 import java.util.Set;
 
 /**
- *
+ * Laajentaa tyyppiä. Kaikki nopat käyvät.
  * @author intoit
  */
 public class Sattuma extends Tyyppi {

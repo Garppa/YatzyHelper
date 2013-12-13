@@ -11,7 +11,7 @@ import java.util.Set;
 
 /**
  *
- * @author intoit
+ * @author Kari
  */
 public abstract class Tyyppi {
     public static final int YKKOSET = 1;
@@ -38,7 +38,7 @@ public abstract class Tyyppi {
             , "VALISUMMA", "SUMMA"} ;
 
     /**
-     *
+     *Tieto mitä tyyppi edustaa
      */
         public int tyyppi;
     
@@ -46,6 +46,11 @@ public abstract class Tyyppi {
         
     }
     
+    /**
+     *Laskee nopat ja niiden lukumäärät taulukkoon annetusta setistä.
+     * @param nopat Setti joka halutaan laskea
+     * @return palauttaa taulkon jossa eri nopat ja niiden lukumäärät.
+     */
     public Map<Noppa, Integer> laskeNopittain(Set<Noppa> nopat){
         Map<Noppa, Integer> lasketutnopat = new HashMap<Noppa, Integer>();
         
@@ -65,12 +70,20 @@ public abstract class Tyyppi {
         return lasketutnopat;
     }
     
+    /**
+     *Palauttaa tiedon että täyttyykö ehto noppasetille tältä tyypiltä
+     * @param nopat nopat joiden kelpoisuus halutaan tarkastaa
+     * @return tosi mikäli nopat kelpaavat
+     */
     public boolean tayttyykoEhto(Set<Noppa> nopat){
         return false;
     }
-    
-        
-    
+
+    /**
+     * palauttaa annettujen noppien silmalukujen summan
+     * @param nopat nopat joille halutaan laskea arvo
+     * @return silmalukujen summa
+     */
     public int palautaArvo(Set<Noppa> nopat) {
         if(!this.tayttyykoEhto(nopat)) {
             return 0;
@@ -85,6 +98,11 @@ public abstract class Tyyppi {
         return summa;
     }
     
+    /**
+     *palauttaa sopivat nopat tälle tulosruudun tyypille annetusta setistä
+     * @param nopat nopat joista halutaan sopivat
+     * @return noppajoukko
+     */
     public Set<Noppa> sopivatNopat(Set<Noppa> nopat) {
         return nopat;
     }
@@ -97,6 +115,16 @@ public abstract class Tyyppi {
     public String toString() {
         return SILMALUVUT[tyyppi];
     }
+
+    /**
+     *Erikoistapaus parille. Poistaa pienemmän arvon
+     * @param parisetti setti joka halutaan parsia sopivaksi
+     * @return paluttaa setin, josta pienempi pari poistettu. Muille kuin parille palauttaa normaalisti koko setin
+     */
+    public Map<Noppa, Integer> poistaPienempiPari(Map<Noppa, Integer> parisetti) {
+        return parisetti;
+    }
+
     
 }
 

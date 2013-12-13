@@ -11,11 +11,17 @@ import backend.Tulosruudut.*;
 import java.util.HashSet;
 import java.util.Set;
 /**
- *
+ *Pelin tyyppien ja pelaajien alustus
  * @author kari_000
  */
 public class PeliAlustus {
+    /**
+     * Lista pelaajista
+     */
     private List<Pelaaja> pelaajat;
+    /**
+     * Lista tulosruutujen tyypeistä.
+     */
     private List<Tyyppi> tyypit;
     //public PoydallaOlevat nopat;
 
@@ -26,6 +32,11 @@ public class PeliAlustus {
         //this.nopat = new PoydallaOlevat();
     }
 
+    /**
+     *luodaan pelaaja
+     * @param nimi pelaajan nimi
+     * @return palauttaa true jos pelaaja lisättiin eikä sitä ollut ennestään
+     */
     public boolean alustaPelaaja(String nimi) {
         if(!pelaajat.contains(nimi)) {
             Pelaaja pelaaja = new Pelaaja(nimi);
@@ -37,6 +48,10 @@ public class PeliAlustus {
         return false;
     }
     
+    /**
+     *Luo tulosrivin yksittäiselle pelaajalle pelialustukseen luoduista tulosruudun tyypeistä
+     * @param pelaaja Pelaaja jolle tulosrivi luodaan
+     */
     public void alustaTulosrivi(Pelaaja pelaaja) {
         TulosSarake tulosrivi = new TulosSarake();
         
@@ -47,6 +62,9 @@ public class PeliAlustus {
         pelaaja.liitaTulosrivi(tulosrivi);
     }
     
+    /**
+     *Alustuksessa tehtävä tulosruutujen tyyppien luonti.
+     */
     public void luoTyypit() {
         Set<Noppa> nopat = new HashSet<Noppa>();
         for (int i=1;i<7;i++) {

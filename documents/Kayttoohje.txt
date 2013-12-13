@@ -1,0 +1,27 @@
+Käyttöohje
+
+
+Pelaajien lisääminen:
+Peli käynnistyy pelaajien lisäysnäyttöön.
+Anna pelaajien nimet. Tyhjäksi jätetty ruutu ei lisää pelaajaa. Ainakin yksi nimi on annettava jotta peli käynnistyy.
+
+Peli:
+Kullakin pelaajalla on vuorollaan kolme heittoa. Ensimmäinen heitto tapahtuu ilman erillisiä toimenpiteitä suoraan pelin käynnistyttyä
+tai toisen pelaajan vuoron päätyttyä. Vuorojen määrä näkyy yläreunasta.
+Pelaaja voi lukita minkä tahansa nopan, jolloin sitä ei heitetä pelaajan painaessa heittonappia.
+
+Missä tahansa vuoron vaiheessa pelaaja voi tallettaa noppiensa arvon tulosruudukon valitsemalleen riville.
+Mikäli nopat täyttävät tulosruutuun liittyvän ehdon, talletetaan kelpaavien noppien silmälukujen summa ko. ruutuun.
+Mikäli ehto ei täyty, tulee ruudun arvoksi nolla.
+
+Ehdot:
+yläkerta ykköset-kuutoset: riville kelpaavan nopan silmälukujen summa
+bonus: ei voi tallettaa, antaa 50 pistettä mikäli yläkerran summa on 63
+pari: mikä tahansa pari
+kolme samaa: kolme samaa noppaa
+neljä samaaa: neljä samaa noppaa
+suorat: suorat 1-5 tai 2-6
+mökki: noppien yhdistelmä pari + kolme samaa
+sattuma: mitkä tahansa viisi noppaa
+Yatzy: viisi samaa silmälukua
+

@@ -7,7 +7,7 @@
 package Pelimoottori;
 
 /**
- *
+ *Virheluokka syntyville virheille
  * @author kari_000
  */
 public class YatzyException extends Exception{

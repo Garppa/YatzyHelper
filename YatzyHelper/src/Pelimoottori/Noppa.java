@@ -5,8 +5,8 @@
 package Pelimoottori;
 
 /**
- *
- * @author intoit
+ *Noppaluokka
+ * @author kari
  */
 public class Noppa implements Comparable<Noppa> {
     public static final int YKSI = 1;

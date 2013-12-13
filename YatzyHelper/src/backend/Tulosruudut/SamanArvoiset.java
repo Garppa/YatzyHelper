@@ -14,12 +14,22 @@ import java.util.Comparator;
 import java.util.Map;
 
 /**
- *
+ * Laajentaa tyypin kaikille tulosruuduille jossa etsitään yhtä samaa silmälukua n kappaletta
+ * 
  * @author intoit
  */
 public class SamanArvoiset extends Tyyppi {
+    /**
+     * pienin määrä joka riittää täyttämään ehdon
+     */
     private int minimimaara;
+    /**
+     * suurin määrä joka täyttää ehdon
+     */
     private int maksimimaara;
+    /**
+     * minkälaiset nopat kelpaavat
+     */
     Set<Noppa> kelpaavatnopat;
     
     public SamanArvoiset(Set<Noppa> nopat, int tyyppi, int min, int maks) {
@@ -56,6 +66,10 @@ public class SamanArvoiset extends Tyyppi {
     public Set<Noppa> sopivatNopat(Set<Noppa> nopat) {
         Set<Noppa> kelpoisatnopat = new HashSet<Noppa>(poistaKelpaamattomatSetista(nopat)); 
         Map<Noppa, Integer> nopatlistalla = super.laskeNopittain(kelpoisatnopat);
+        
+        //poistetaan paria varten pienempi silmaluku
+        nopatlistalla = poistaPienempiPari(nopatlistalla);
+        
         Set<Noppa> palautettavat = new HashSet<Noppa>(); 
          for (Noppa noppa : nopatlistalla.keySet()) {
              if(nopatlistalla.get(noppa)>=minimimaara){
@@ -73,6 +87,11 @@ public class SamanArvoiset extends Tyyppi {
          return palautettavat;
     }
     
+    /**
+     * Poistaa setistä attribuutin ehtoihin sopimattomat
+     * @param nopat nopat joista halutaan poistaa ylimääräiset
+     * @return palauttaa setin jotka toteuttavat attribuutin
+     */
     public Set<Noppa> poistaKelpaamattomatSetista(Set<Noppa> nopat){
         Set<Noppa> kelpoisat = new HashSet<Noppa>();
         for(Noppa noppa: nopat){
@@ -83,6 +102,24 @@ public class SamanArvoiset extends Tyyppi {
             }
         }
         return kelpoisat;
+    }
+    
+    @Override
+    public Map<Noppa, Integer> poistaPienempiPari(Map<Noppa, Integer> kelpoisatnopat){
+        Map<Noppa, Integer> nopatlistalla = kelpoisatnopat;
+        if(super.tyyppi==8) {
+            Noppa poistettavanoppa = null;
+            for(Noppa noppa : nopatlistalla.keySet()) {
+                poistettavanoppa = noppa;
+                if(nopatlistalla.get(noppa)>1){
+                    if(poistettavanoppa.annaSilmaluku()>noppa.annaSilmaluku()){
+                        poistettavanoppa=noppa;
+                    }
+                }
+            }
+            nopatlistalla.remove(poistettavanoppa);
+        }
+        return nopatlistalla;
     }
 
 }

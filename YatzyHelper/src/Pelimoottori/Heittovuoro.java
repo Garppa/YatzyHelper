@@ -114,19 +114,14 @@ public class Heittovuoro {
      * @return
      */
     public boolean tarkistaLoppusumma(){
-        for (int i = 7; i < 17 ; i++) {
-            if(!pelaaja.annaTulosrivi().annaTulosruudut().get(i).onkoAsetettu()) {
-                return false;
-            }
-            
-        
-        }
+      
         int summa = 0;
         for (Tulosruutu ruutu : pelaaja.annaTulosrivi().annaTulosruudut()){
             if(ruutu.annaTyyppi().tyyppi!=17&&ruutu.annaTyyppi().tyyppi!=18){
                 summa = summa + ruutu.annaPisteet();
             }
-        }    
+        }
+     
         pelaaja.annaTulosrivi().annaTulosruudut().get(17).asetaPisteet(summa);
         return true;
     }

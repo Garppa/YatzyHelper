@@ -38,7 +38,7 @@ public class Tulosruutu {
     }
     
     public void asetaPisteet(int pisteet){
-        if (!this.asetettu) {
+        if (!this.asetettu||this.tyyppi.annaTyyppi()==18) {
             this.pisteet = pisteet;
             this.asetettu = true;
         }

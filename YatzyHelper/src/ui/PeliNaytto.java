@@ -537,6 +537,10 @@ public class PeliNaytto extends javax.swing.JPanel {
         jTextArea1.setText(annatulos());
         //luoTaulu();
         //jPanel2.add(tablitsa);
+        if(peli.annaKierros()==15) {
+            JFrame frame = new JFrame();
+            JOptionPane.showMessageDialog(frame, "Lopputulokset: " + "\n" + annaLopputulos());
+        }
     }
     
     public String annatulos(){
@@ -547,6 +551,14 @@ public class PeliNaytto extends javax.swing.JPanel {
              
              }
         return ulos;
+    }
+    
+    public String annaLopputulos(){
+        String tulokset = "";
+         for (Pelaaja pelaaja: peli.annaPelaajat()) {
+            tulokset = tulokset + (pelaaja.annaNimi()+": "+ pelaaja.annaTulosrivi().annaTulosruudut().get(17) + "\n");
+        }
+         return tulokset;
     }
         
    /* public void luoTaulu(){

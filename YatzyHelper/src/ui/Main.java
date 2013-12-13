@@ -16,11 +16,11 @@ public class Main {
     public static void main(String[] args) {
         
         PeliClient peli = new PeliClient();
-        peli.kaynnista();
+        //peli.kaynnista();
 
         //
-        //GraafinenUi totteroi = new GraafinenUi();
-        //SwingUtilities.invokeLater(totteroi);
+        GraafinenUi totteroi = new GraafinenUi();
+        SwingUtilities.invokeLater(totteroi);
     }
     
 }

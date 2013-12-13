@@ -6,6 +6,7 @@
 
 package ui;
 
+import Pelimoottori.Peli;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Container;
@@ -24,8 +25,11 @@ import javax.swing.WindowConstants;
 public class GraafinenUi implements Runnable {
     private static JFrame frame;
     private CardLayout korttileiska;
+    private JPanel pelinaytto;
+    private Peli peli;
     public GraafinenUi(){
-        korttileiska = new CardLayout();      
+        korttileiska = new CardLayout();
+        this.pelinaytto = null;
         
         
     }
@@ -48,8 +52,10 @@ public class GraafinenUi implements Runnable {
     private void luoKomponentit(Container container) {
         
         container.setLayout(korttileiska);
-        JPanel pelnaytpain = pelaajaNaytonPainikkeet();
+        JPanel pelnaytpain = new PelaajienLisays(this).annaPaneeli();
         container.add(pelnaytpain);
+        //JPanel pnaytto = new PeliNaytto(this).annaPaneeli();
+        //container.add(pnaytto);
 
         
     }
@@ -71,9 +77,6 @@ public class GraafinenUi implements Runnable {
  
         return painikkeet;    
     }
-    
-
-
 
     public JFrame getFrame() {
         return frame;
@@ -81,5 +84,13 @@ public class GraafinenUi implements Runnable {
     
     public CardLayout korttileiska(){
         return korttileiska;
+    }
+
+    public void asetaPeli(Peli peli) {
+        this.peli = peli;
+    }
+    
+    public Peli annaPeli() {
+        return this.peli;
     }
 }

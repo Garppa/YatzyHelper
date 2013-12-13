@@ -6,6 +6,10 @@
 
 package ui;
 
+import Pelimoottori.Pelaaja;
+import Pelimoottori.Peli;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JPanel;
 
 /**
@@ -17,8 +21,10 @@ public class PelaajienLisays extends javax.swing.JPanel {
     /**
      * Creates new form Pelaajienlisays
      */
-    public PelaajienLisays() {
+    public PelaajienLisays(GraafinenUi ui) {
         initComponents();
+        this.liittyma=ui;
+        
     }
 
     /**
@@ -122,12 +128,10 @@ public class PelaajienLisays extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(152, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(29, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addGap(173, 173, 173))
         );
@@ -135,10 +139,10 @@ public class PelaajienLisays extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -148,6 +152,29 @@ public class PelaajienLisays extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        List<String> pelaajat = new ArrayList<String>();
+        if(!jTextField2.getText().isEmpty()) {
+            pelaajat.add(jTextField2.getText());
+        }
+        if(!jTextField3.getText().isEmpty()) {
+            pelaajat.add(jTextField3.getText());
+        }
+        if(!jTextField4.getText().isEmpty()) {
+            pelaajat.add(jTextField4.getText());
+        }
+        if(!jTextField5.getText().isEmpty()) {
+            pelaajat.add(jTextField5.getText());
+        }
+        Peli p = new Peli(pelaajat);
+        System.out.println(p.annaNoppa(1).annaSilmaluku());
+        
+        liittyma.asetaPeli(p);
+        PeliNaytto pelinaytto = new PeliNaytto(this.liittyma, p);
+        
+        JPanel pnaytto = pelinaytto.annaPaneeli();
+        this.liittyma.getFrame().getContentPane().add(pnaytto);
+        
+        liittyma.korttileiska().next(liittyma.getFrame().getContentPane());
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -166,9 +193,10 @@ public class PelaajienLisays extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
-
+    private GraafinenUi liittyma;
+    
     public JPanel annaPaneeli(){
-    return this;
+    return this.jPanel1;
     }
 
 

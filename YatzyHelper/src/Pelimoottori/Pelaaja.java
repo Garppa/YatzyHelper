@@ -33,5 +33,9 @@ public class Pelaaja {
         this.tulosrivi = tulosrivi;
     }
     
+    public String toString(){
+        return this.nimi;
+    }
+    
 }
 

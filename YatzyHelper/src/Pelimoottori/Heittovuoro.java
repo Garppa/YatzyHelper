@@ -67,7 +67,7 @@ public class Heittovuoro {
             for(Noppa noppa : tallennettava.annaTyyppi().sopivatNopat(this.poydalla.annaNopat())){
                 summa = summa + noppa.annaSilmaluku();
             }
-            if(tallennettava.annaTyyppi().annaTyyppi()==15&&tallennettava.annaTyyppi().sopivatNopat(this.poydalla.annaNopat()).size()==5){
+            if(tallennettava.annaTyyppi().annaTyyppi()==16&&tallennettava.annaTyyppi().sopivatNopat(this.poydalla.annaNopat()).size()==5){
                 summa = 50;
             }
         //}
